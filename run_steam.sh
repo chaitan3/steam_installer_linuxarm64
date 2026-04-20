@@ -4,12 +4,12 @@ STEAMROOT="$SCRIPTDIR/steam"
 
 # setup steam data dir
 mkdir -p ~/.steam
-if [ ! -f ~/.steam/steam ]; then
+if [ ! -d ~/.steam/steam ]; then
 	ln -s "$STEAMROOT" ~/.steam/steam
 fi
 
 # ensure that the arm64 version of the steamrt based steam binary is used
-if [ ! -f "$STEAMROOT/steamrt64_backup" ]; then
+if [ ! -d "$STEAMROOT/steamrt64_backup" ]; then
 	mv "$STEAMROOT/steamrt64" "$STEAMROOT/steamrt64_backup"
 fi
 ln -s "$STEAMROOT/steamrtarm64" "$STEAMROOT/steamrt64"
